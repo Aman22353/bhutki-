@@ -78,8 +78,8 @@
     </div>
     <div id="question">
         <p>Will you be my Valentine?</p>
-        <button onclick="displayMessage('yes')" id="yesButton">Yes</button>
-        <button onclick="displayMessage('no')" id="noButton">No</button>
+        <button onclick="displayMessage('yes'); scrollPage()" id="yesButton">Yes</button>
+        <button onclick="displayMessage('no'); scrollPage()" id="noButton">No</button>
     </div>
     <div id="responseMessage"></div>
 
@@ -115,6 +115,10 @@
             responseMessage.style.display = 'block';
             if (attempts >= 3) nameElement.innerHTML = "My Junior (Baby Girl)";
             attempts++;
+        }
+
+        function scrollPage() {
+            window.scrollBy(0, 200); // Scrolls the page down by 200px
         }
     </script>
 </body>
