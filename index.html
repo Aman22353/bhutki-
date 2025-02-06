@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Proposal</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+        body {
+            text-align: center;
+            font-family: 'Patrick Hand', sans-serif;
+            background-color: #ffe6f2;
+            color: #d63384;
+            padding: 20px;
+        }
+        #lovePoem {
+            font-size: 26px;
+            margin: 20px;
+            text-align: center;
+            padding: 20px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #heart {
+            color: red;
+            font-size: 45px;
+            margin: 15px;
+        }
+        #question p {
+            font-size: 30px;
+        }
+        button {
+            font-size: 24px;
+            padding: 12px 24px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            font-family: 'Patrick Hand', sans-serif;
+        }
+        #yesButton {
+            background-color: #ff4081;
+            color: white;
+        }
+        #noButton {
+            background-color: #ffcc00;
+            color: black;
+        }
+        button:hover {
+            transform: scale(1.1);
+            transition: 0.3s;
+        }
+        #responseMessage {
+            display: none;
+            font-size: 24px;
+            margin: 20px;
+            color: #d63384;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="lovePoem">
+        Beneath the moon, a silent spark,<br>
+        Two hearts entwined, in shadows dark.<br>
+        Eyes lock in a dance, just starting,<br>
+        A love story, silent hearts imparting.<br><br>
+
+        Whispers soft, laughter light,<br>
+        A canvas blank, love takes flight.<br>
+        Hand in hand, a journey begun,<br>
+        In the glow of a new love, two as one.
+    </div>
+    <div id="heart">
+        ❤ <span id="name">My Junior (Laadooo)</span>
+    </div>
+    <div id="question">
+        <p>Will you be my Valentine?</p>
+        <button onclick="displayMessage('yes')" id="yesButton">Yes</button>
+        <button onclick="displayMessage('no')" id="noButton">No</button>
+    </div>
+    <div id="responseMessage"></div>
+
+    <script>
+        let attempts = 0;
+        let loveQuotes = [
+            "Thanks for being my valentine bhutki, I promise, I will always be there for you 'MERI LAADLI BACHI'"
+        ];
+
+        let yesSelected = false;
+
+        function displayMessage(response) {
+            const responseMessage = document.getElementById('responseMessage');
+            const yesButton = document.getElementById('yesButton');
+            const noButton = document.getElementById('noButton');
+            const nameElement = document.getElementById('name');
+
+            if (yesSelected) return;
+
+            if (response === 'yes') {
+                responseMessage.innerHTML = attempts === 0 ? loveQuotes[Math.floor(Math.random() * loveQuotes.length)] : "Thanks for being my valentine bhutki, I promise, I will always be there for you 'MERI LAADLI BACHI' ";
+                noButton.disabled = true;
+                yesSelected = true;
+            } else {
+                responseMessage.innerHTML = [
+                    "Mata raani k paap lgega haa kr de dusht aurat",
+                    "Andhi h kya chasma pehn k haa kr ",
+                    "Itna Sexy bnda nhi milega haa kr de",
+                    "Aand bnd k tola jo 'haa' nhi kiya wo smjh jaaooo"
+                ][attempts] || "Haa krde nhi too pregnant kr denge";
+            }
+
+            responseMessage.style.display = 'block';
+            if (attempts >= 3) nameElement.innerHTML = "My Junior (Baby Girl)";
+            attempts++;
+        }
+    </script>
+</body>
+</html>
